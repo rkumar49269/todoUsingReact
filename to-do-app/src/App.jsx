@@ -28,11 +28,26 @@ function App() {
     setTasks([...tasks, undoneTask]);
   };
 
+  const deleteTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks.splice(index, 1);
+    setTasks(updatedTasks);
+  };
+
+  const deleteDoneTask = (index) => {
+    const updatedDone = [...doneTasks];
+    updatedDone.splice(index, 1);
+    setDoneTasks(updatedDone);
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Tododooo</a>
+            <a class="navbar-brand" href="https://tododooo.netlify.app/">
+              <img src="https://cdn-icons-png.flaticon.com/512/5290/5290058.png" alt="check" width="30" height="24" />
+            </a>
+          <a className="navbar-brand" href="https://tododooo.netlify.app/">Tododooo</a>
 
           <button
             className="navbar-toggler"
@@ -86,7 +101,8 @@ function App() {
               <div className="ms-2 me-auto">
                 <div className="fw-bold">{t}</div>
               </div>
-              <button className="btn btn-success rounded-pill" onClick={() => markAsDone(index)}>done</button>
+              <button className="btn btn-success rounded-pill" onClick={() => markAsDone(index)}>Done</button>
+              <button className="btn btn-danger rounded-pill ms-2" onClick={() => deleteTask(index)}>Delete</button>
             </li>
           ))}
         </ol>
@@ -100,7 +116,8 @@ function App() {
               <div className="ms-2 me-auto">
                 <div className="fw-bold">{t}</div>
               </div>
-              <button className="btn btn-warning rounded-pill" onClick={() => markAsUndone(index)}>undone</button>
+              <button className="btn btn-warning rounded-pill" onClick={() => markAsUndone(index)}>Undone</button>
+              <button className="btn btn-danger rounded-pill ms-2" onClick={() => deleteDoneTask(index)}>Delete</button>
             </li>
           ))}
         </ol>
