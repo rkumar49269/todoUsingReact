@@ -1,0 +1,32 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+@media screen and (max-width: 1080px) {
+  .task-form-outside {
+    display: none !important;
+  }
+
+  .task-form-inside {
+    display: block !important;
+  }
+}
+
+@media screen and (min-width: 1081px) {
+  .task-form-outside {
+    display: flex !important;
+  }
+
+  .task-form-inside {
+    display: none !important;
+  }
+}
