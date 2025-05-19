@@ -75,7 +75,7 @@ function App() {
                   value={task}
                   onChange={(e) => setTask(e.target.value)}
                 />
-                <button type="submit" className="btn btn-success input-group-text">Add</button>
+                <button type="submit" className="btn btn-success input-group-text"><i class="fa-solid fa-plus"></i></button>
               </div>
             </form>
           </div>
@@ -89,7 +89,7 @@ function App() {
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
               />
-              <button type="submit" className="btn btn-success input-group-text">Add</button>
+              <button type="submit" className="btn btn-success input-group-text"><i class="fa-solid fa-plus"></i></button>
             </div>
           </form>
         </div>
@@ -103,32 +103,40 @@ function App() {
         <li className='list-group-item'>
           <div className="fw-bold">Today's Tasks</div>
         </li>
+
+        {
+          tasks.length===0 ? <p className='mt-4'>No task! Enjoy your free day 😉</p>:(
+        
         <ol className="list-group list-group-numbered">
           {tasks.map((t, index) => (
             <li key={index} className="list-group-item d-flex justify-content-between align-items-start">
               <div className="ms-2 me-auto">
                 <div className="fw-bold">{t}</div>
               </div>
-              <button className="btn btn-success rounded-pill" onClick={() => markAsDone(index)}>Done</button>
-              <button className="btn btn-danger rounded-pill ms-2" onClick={() => deleteTask(index)}>Delete</button>
+              <button className="btn btn-success rounded-pill" onClick={() => markAsDone(index)}><i class="fa-solid fa-check"></i></button>
+              <button className="btn btn-danger rounded-pill ms-2" onClick={() => deleteTask(index)}><i class="fa-solid fa-trash"></i></button>
             </li>
           ))}
         </ol>
+          )}
         <hr />
         <li className='list-group-item'>
           <div className="fw-bold">Today's Done Tasks</div>
         </li>
+
+        {
+          doneTasks.length===0 ? <p className='mt-4'>No task Completed! Keep working 😮‍💨</p>:(
+        
         <ol className="list-group list-group-numbered">
           {doneTasks.map((t, index) => (
             <li key={index} className="list-group-item d-flex justify-content-between align-items-start">
               <div className="ms-2 me-auto">
                 <div className="fw-bold">{t}</div>
               </div>
-              <button className="btn btn-warning rounded-pill" onClick={() => markAsUndone(index)}>Undone</button>
-              <button className="btn btn-danger rounded-pill ms-2" onClick={() => deleteDoneTask(index)}>Delete</button>
+              <button className="btn btn-warning rounded-pill" onClick={() => markAsUndone(index)}><i class="fa-solid fa-arrow-rotate-left"></i></button>
             </li>
           ))}
-        </ol>
+        </ol>)}
       </ul>
     </>
   );
