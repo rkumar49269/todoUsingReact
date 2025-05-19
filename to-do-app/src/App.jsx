@@ -40,6 +40,10 @@ function App() {
     setDoneTasks(updatedDone);
   };
 
+  const date=new Date();
+  const day =date.getDate();
+  const monthName=date.toLocaleDateString("en-Us",{month:"long"});
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -90,6 +94,10 @@ function App() {
           </form>
         </div>
       </nav>
+
+      <div className="card">
+        <h1>{day} {monthName}</h1>
+      </div>
 
       <ul className='todo-list list-group list-group-flush card m-4'>
         <li className='list-group-item'>
